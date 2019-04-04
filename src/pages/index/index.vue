@@ -72,6 +72,7 @@ export default {
   onShow: function() {
     // Do something when page show.
     console.log("Page [home] onShow");
+    this.refreshData()
   },
   onHide: function() {
     // Do something when page hide.
@@ -84,15 +85,14 @@ export default {
   mounted() {
     var appInstance = getApp();
     this.globalData = appInstance.globalData;
-   
-
+    var _this = this;
     wx.getSetting({
       success(res) {
         if (res.authSetting["scope.userInfo"]) {
           wx.getUserInfo({
             success(res) {
-              if (!!e.userInfo) {
-                this.setUserInfo(res);
+              if (!!res.userInfo) {
+                _this.setUserInfo(res.userInfo);
               }
             }
           });
@@ -113,18 +113,17 @@ export default {
           date: new Date().valueOf()
         }
       });
-      wx.showLoading()
+      wx.showLoading();
       this.refreshData();
       wx.hideLoading();
     },
-    successGetUserInfo(e) {
-      if (!!e.detail.userInfo) {
-        this.setUserInfo(e.detail.userInfo);
+    successGetUserInfo(et) {
+      if (!!et.detail.userInfo) {
+        this.setUserInfo(et.detail.userInfo);
       }
     },
     async refreshData() {
-      if(!this.haslogin)
-      {
+      if (!this.haslogin) {
         return;
       }
       let xbillList = await tb_mybilllist.where({}).get();
@@ -155,16 +154,7 @@ export default {
         url: `/pages/detail/index?id=${id}`
       });
     },
-    onTouchStart(e) {
-      console.log(e);
-    },
-    handlerClick() {
-      wx.showToast({
-        title: "成ee功",
-        icon: "success",
-        duration: 2000
-      });
-    }
+    onTouchStart(e) {}
   }
 };
 </script>
