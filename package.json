@@ -8,6 +8,7 @@
     "build:alipay": "node ./build/megalo-cli-service.js --mode production --platform alipay",
     "build:swan": "node ./build/megalo-cli-service.js --mode production --platform swan",
     "dev:wechat": "node ./build/megalo-cli-service.js --mode development --platform wechat",
+    "dev:textjj": "node ./build/megalo-cli-service.js --mode development --platform testjj",
     "dev:alipay": "node ./build/megalo-cli-service.js --mode development --platform alipay",
     "dev:swan": "node ./build/megalo-cli-service.js --mode development --platform swan",
     "link": "npm link @megalo/template-compiler && npm link @megalo/target && npm link megalo/env-plugin && npm link megalo"
@@ -45,6 +46,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "@megalo/api": "^0.4.1",
     "@megalo/vhtml-plugin": "^0.1.2",
     "megalo": "^0.8.0",
     "octoparse": "^0.3.2"

@@ -9,7 +9,7 @@ Vue.use(VHtmlPlugin)
 const store = require('./store').default
 Vue.prototype.$store = store
 
-const app = new Vue( App )
+const app = new Vue(App)
 
 app.$mount()
 
@@ -23,35 +23,19 @@ export default {
     },
     pages: [
       'pages/index/index',
-      'pages/todomvc/index',
-      'pages/v-model/index',
-      'pages/v-html/index',
-      'pages/vuex/index',
-      'pages/native/index',
-      'pages/webview/index',
-      'pages/img/index',
+      'pages/detail/index',
     ],
-    subPackages: [
-      {
-          root: 'packageA',
-          pages: [
-            'pages/a/index',
-            'pages/todomvc/index',
-          ]
-      }
-    ],
-    tabBar: {
-      list: [
-        {
-        pagePath: 'pages/index/index',
-        text: '首页'
-        },
-        {
-        pagePath: 'pages/todomvc/index',
-        text: 'todo'
-        }
-      ]
-    },
+    // tabBar: {
+    //   list: [{
+    //       pagePath: 'pages/index/index',
+    //       text: '首页'
+    //     },
+    //     {
+    //       pagePath: 'pages/detail/index',
+    //       text: 'todo'
+    //     }
+    //   ]
+    // },
     _alipay: {
       window: {
         navigationBarTitleText: 'Alipay'

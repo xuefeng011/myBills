@@ -10,11 +10,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { pagesEntry } = require('@megalo/entry')
 const _ = require( './util' )
 const appMainFile = _.resolve('src/index.js')
-
+const path = require("path")
 const CSS_EXT = {
   wechat: 'wxss',
   alipay: 'acss',
   swan: 'css',
+  testjj: 'jcss'
 }
 
 const cssLoaders = [
@@ -38,7 +39,7 @@ function createBaseConfig() {
       platform,
       htmlParse: {
         templateName: 'octoParse',
-        src: _.resolve(`./node_modules/octoparse/lib/platform/${platform}`)
+        src: _.resolve(`./node_modules/@megalo/octoparse/lib/platform/${platform}`)
       }
     } ),
 
@@ -144,6 +145,10 @@ function createBaseConfig() {
     },
 
     plugins: [
+
+      new webpack.ProvidePlugin({
+        'Megalo': [path.resolve(`./node_modules/@megalo/api/platforms/${platform}`), 'default']
+      }),
       new VueLoaderPlugin(),
       new MiniCssExtractPlugin( {
         filename: `./static/css/[name].${cssExt}`,

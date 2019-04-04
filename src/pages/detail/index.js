@@ -1,19 +1,16 @@
 import App from './index'
 import Vue from 'vue'
 
-const app = new Vue(App)
+const app = new Vue( App )
 
 app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '资产账户',
+    navigationBarTitleText: '详情',
 
     // 微信小程序配置
     _wechat: {
-      // usingComponents: {
-      //   "vant-button": "../../../static/vant/button/index"
-      // },
       navigationBarBackgroundColor: '#32c338',
       navigationBarTextStyle: 'black'
     },

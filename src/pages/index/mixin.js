@@ -3,6 +3,7 @@ export default {
     console.log('created', 2)
   },
   onShow() {
-    console.log('onShow', 2)
+    console.log('onShow', this)
+    this.refreshData();
   }
 }
